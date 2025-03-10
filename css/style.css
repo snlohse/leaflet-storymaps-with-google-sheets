@@ -1,4 +1,4 @@
-body {
+body { 
   padding: 0px;
   margin: 0px;
   font-family: "Helvetica", sans-serif;
@@ -7,26 +7,31 @@ body {
 
 #map {
   height: 200px;
-  width: 100vw;
+  width: 55vw; /* Adjusted to fit with wider narration */
   position: absolute;
   border-bottom: 3px solid orange;
   top: 0;
-  left: 0;
+  left: 45vw; /* Pushes the map to the right */
 }
 
 #narration {
   position: absolute;
   top: 203px;
-  width: 100vw;
+  width: 45vw; /* Increased width for larger images */
   height: calc(100vh - 203px);
   z-index: 80;
+  background: rgba(255, 255, 255, 0.9); /* Optional: Slight transparency */
+  left: 0;
+  overflow-y: auto; /* Ensures scrolling for long content */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Optional: Adds subtle separation from map */
 }
 
 #contents {
   padding: 0;
   width: 100%;
-  margin-top: 0; /*Adjust if Title header needs more space */
-  height: 100%; /* Adjust to fit max Description length, one setting for all; alternative is 100% */
+  margin-top: 0;
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -58,22 +63,19 @@ body {
 }
 
 .chapter-container {
-  /* margin + padding = chapterContainerMargin in script.js */
-  /* Important for scrolling! */
   margin: 50px 0 0 0;
   padding: 20px 0 0 0;
   text-align: center;
 }
 
+/* Allow images to be larger within the narration */
 .chapter-container img {
+  max-width: 90%; /* Makes images take up more space */
   height: auto;
-  width: auto;
-  max-height: 100%;
-  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 
-  /* Three lines that center vertically */
+  /* Center images vertically */
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -82,9 +84,8 @@ body {
 .img-container {
   margin: 0;
   margin-bottom: 5px;
-  height: 200px;
-  max-height: 200px;
-  width: 100%;
+  height: auto; /* Adjusts for larger images */
+  max-width: 100%;
 }
 
 .audio-container {
@@ -134,15 +135,12 @@ a.source:visited {
   opacity: 0.75;
 }
 
-/*
-  By default, current (active) marker is orange.
-  If you want to change the color, see options here: https://github.com/coryasilva/Leaflet.ExtraMarkers/blob/master/src/assets/css/leaflet.extra-markers.css
-*/
+/* Style active markers */
 .marker-active {
   background-position: -72px 0 !important;
 }
 
-/* Storymap logo image above the title */
+/* Storymap logo */
 #logo {
   height: 30px;
   line-height: 30px;
@@ -174,3 +172,4 @@ h2 {
   font-size: 1.1em;
   font-weight: normal;
 }
+
